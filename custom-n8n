@@ -1,0 +1,14 @@
+#!/var/ossec/framework/python/bin/python3
+import sys, json, requests
+
+alert_file = sys.argv[1]
+webhook_url = sys.argv[3]
+
+with open(alert_file, 'r') as f:
+    alert_json = json.load(f)
+
+try:
+    requests.post(webhook_url, json=alert_json, timeout=10)
+except Exception as e:
+    print(f'Error sending alert to n8n: {e}', file=sys.stderr)
+    sys.exit(1)
