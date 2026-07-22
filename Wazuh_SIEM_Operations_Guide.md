@@ -13,7 +13,7 @@ To ensure zero exposure to the public internet, all Wazuh agents communicate wit
 **Standard Linux Agent Deployment (Ubuntu/Debian):**
 ```bash
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.0-1_amd64.deb
-sudo WAZUH_MANAGER='100.127.76.53' WAZUH_AGENT_NAME='[Target-Hostname]' dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
+sudo WAZUH_MANAGER='100.xxx.xx.xx' WAZUH_AGENT_NAME='[Target-Hostname]' dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
 sudo systemctl daemon-reload
 sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
@@ -26,7 +26,7 @@ Alerts hitting a severity threshold of **Level 10 or higher** are automatically 
 ```xml
   <integration>
     <name>custom-n8n</name>
-    <hook_url>http://100.127.76.53:5678/webhook/wazuh-alert</hook_url>
+    <hook_url>http://100.12x.xx.xx:xxxx/webhook/wazuh-alert</hook_url>
     <level>10</level>
     <alert_format>json</alert_format>
   </integration>
